@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fdfdfd;
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    height: 60px;
+    margin-right: 10px;
+}
+
+.navbar-links {
+    /* Changed from flex to block for mobile, adjusted below with media query */
+    flex-grow: 1; /* Allows it to take available space */
+    display: flex; /* Default to flex for larger screens */
+    justify-content: center; /* Center links on larger screens */
+}
+
+.navbar-links ul {
+    display: flex;
+    list-style: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    gap: 65px; /* Spacing between links on larger screens */
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: rgb(61, 61, 61);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: red;
+}
+
+.navbar-buttons {
+    display: flex; /* Default to flex for larger screens */
+    align-items: center;
+}
+
+.navbar-buttons a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #FFC222; /* Button background color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.navbar-buttons a:hover {
+    background-color: #f5b921; /* Darker shade on hover */
+}
+
+/* Hamburger menu button */
+.toggle-button {
+    position: absolute; /* Position relative to the nearest positioned ancestor */
+    top: 25px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    display: none; /* Hidden by default, shown only on small screens */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toggle-button {
+        display: flex; /* Show hamburger icon on smaller screens */
+    }
+
+    .navbar-links {
+        width: 100%;
+        display: none; /* Hide links by default on small screens */
+        flex-direction: column;
+        align-items: center; /* Center links in column layout */
+        margin-top: 10px;
+    }
+
+    .navbar-links.active {
+        display: flex; /* Show links when active */
+    }
+
+    .navbar-links ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 0; /* Remove gap for vertical stacking */
+    }
+
+    .navbar-links ul li {
+        text-align: center;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .navbar-links ul li a {
+        display: block; /* Make links take full width of list item */
+        padding: 10px 0;
+    }
+
+    .navbar-buttons {
+        width: 100%;
+        justify-content: center; /* Center buttons on small screens */
+        margin-top: 10px;
+        display: none; /* Hide buttons by default on small screens */
+    }
+
+    .navbar-buttons.active {
+        display: flex; /* Show buttons when active */
+    }
+
+    .navbar-logo {
+        width: 100%;
+        justify-content: center; /* Center logo on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-logo img {
+        height: 50px; /* Smaller logo on very small screens */
+    }
+}

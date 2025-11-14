@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures footer sticks to the bottom on short content pages */
+}
+
+.footer-container {
+    background-color: #FFD700; /* Yellow color from the image */
+    color: #000; /* Black text color */
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    justify-content: space-around; /* Distributes space between items */
+    align-items: center;
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+.footer-container i {
+    color: white;
+}
+.footer-left {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Space below this section on smaller screens */
+}
+.footer-logo {
+    width: 350px;
+    height: 100px;
+}
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left within this column */
+}
+.follow-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    white-space: nowrap;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+.contact-item a{
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+.contact-item:last-child {
+    margin-bottom: 0; /* No margin for the last item */
+}
+.icon {
+    margin-right: 10px;
+    font-size: 1.3em;
+    width: 25px; /* Fixed width for icons for alignment */
+    text-align: center;
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        text-align: center;
+    }
+    .footer-left {
+        flex-direction: column; /* Stack logo and name */
+        margin-bottom: 30px;
+    }
+    .footer-logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .footer-right {
+        align-items: center; /* Center contact items on smaller screens */
+    }
+    .follow-text {
+        margin-bottom: 20px;
+    }
+    .contact-item {
+        justify-content: center; /* Center content within contact item */
+        margin-bottom: 15px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 1.5em;
+    }
+    .follow-text {
+        font-size: 1em;
+    }
+    .contact-item {
+        font-size: 0.9em;
+    }
+    .icon {
+        font-size: 1.1em;
+    }
+}

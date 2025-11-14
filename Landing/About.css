@@ -1,0 +1,187 @@
+main {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
+    box-sizing: border-box;
+    text-align: justify;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+section {
+    padding: 40px 0;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #FFC222; /* Matching the "Best Seller" color */
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #FFC222;
+    border-radius: 2px;
+}
+
+/* Hero Section (Top Section with Owner Working) */
+.hero-section .hero-content {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Space between image and text */
+    flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+}
+
+.hero-section .hero-image {
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.hero-section .hero-text {
+    flex: 1; /* Takes remaining space */
+    min-width: 300px; /* Ensures text block has a minimum width before wrapping */
+}
+
+.hero-section .hero-text h2 {
+    font-size: 2em;
+    color: #FFC222;
+    margin-bottom: 15px;
+}
+
+/* Best Seller Section */
+.bestseller-section {
+    background-color: #fff; /* Or a slightly different background if needed */
+}
+
+.bestseller-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Allows content to wrap */
+    flex-direction: row; /* Default: text then image */
+}
+
+.bestseller-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.bestseller-image {
+    width: 100%;
+    max-width: 300px; /* Adjust as needed for the leche flan image */
+    height: 300px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Owner Section (Maria Theresa Esguerra) */
+.owner-section .owner-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap-reverse; /* Image after text on small screens, image before text on large */
+}
+
+.owner-image {
+    width: 100%;
+    max-width: 450px; /* Adjust as needed */
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.owner-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.owner-text h2 {
+    font-size: 2em;
+    color: #FFC222;
+    margin-bottom: 15px;
+}
+
+/* Footer Styles */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 40px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        margin-top: 15px;
+    }
+
+    header nav ul li {
+        margin: 0 10px;
+        display: block; /* Stack navigation items vertically on small screens */
+        margin-bottom: 10px;
+    }
+
+    .hero-section .hero-content,
+    .bestseller-content,
+    .owner-section .owner-content {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center;
+    }
+
+    .hero-section .hero-image,
+    .bestseller-image,
+    .owner-image {
+        max-width: 80%; /* Adjust image size on smaller screens */
+        margin: 0 auto; /* Center images */
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    section {
+        padding: 20px 0;
+    }
+}

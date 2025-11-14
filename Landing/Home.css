@@ -1,0 +1,466 @@
+.carousel {
+    padding-top: 20px;
+    height: 500px;
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+.carousel img {
+    height: 500px;
+    width: 100%;
+    display: block;
+}
+.indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+.indicator {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: gray;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.5;
+}
+.indicator.active {
+    background-color: black;
+    opacity: 1;
+}
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 10;
+}
+.arrow.left {
+    left: 10px;
+}
+.arrow.right {
+    right: 10px;
+}
+/*----------Menu-Categories----------*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem; /* 32px top/bottom, 16px left/right */
+}
+.menu-categories-section {
+    margin-bottom: 3rem; /* 48px */
+}
+.section-title {
+    font-size: 2.25rem; /* 36px */
+    font-weight: 700; /* bold */
+    text-align: center;
+    color: #374151; /* gray-800 */
+    margin-bottom: 2rem; /* 32px */
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+    .section-title {
+        font-size: 2.5rem; /* 40px */
+        }
+    }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* Default 1 column */
+    gap: 1.5rem; /* 24px */
+}
+
+@media (min-width: 640px) { /* sm breakpoint */
+    .grid-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns */
+    }
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+    .grid-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columns */
+    }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+    .grid-container {
+        grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 columns */
+    }
+}
+
+.category-card {
+    background-color: #ffffff;
+    border-radius: 0.75rem; /* 12px */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+    overflow: hidden;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+.category-card:hover {
+    transform: scale(1.05);
+}
+.category-card-image {
+    width: 100%;
+    height: 12rem; /* 192px */
+    object-fit: cover;
+}
+.category-card-content {
+    padding: 1rem; /* 16px */
+}
+.category-card-title {
+    font-weight: 600; /* semibold */
+    font-size: 1.125rem; /* 18px */
+    color: #374151; /* gray-800 */
+    margin-bottom: 0.5rem; /* 8px */
+}
+.category-card-description {
+    color: #4b5563; /* gray-600 */
+    font-size: 0.875rem; /* 14px */
+}
+.intro-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 0; /* 48px top/bottom */
+}
+.intro-text {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 700; /* bold */
+    color: #374151; /* gray-800 */
+    margin-bottom: 1.5rem; /* 24px */
+    line-height: 1.3;
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+    .intro-text {
+        font-size: 1.875rem; /* 30px */
+    }
+}
+
+.menu-button {
+    background-color: #FFD700; /* Gold-like color from the image */
+    color: #333;
+    font-weight: 600;
+    border-radius: 0.5rem; /* 8px */
+    padding: 0.75rem 1.5rem; /* 12px top/bottom, 24px left/right */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove underline from link */
+    display: inline-block;
+}
+.menu-button:hover {
+    background-color: #FFC700; /* Slightly darker on hover */
+}
+
+/*----------Featured Meals----------*/
+@media (min-width: 576px) { /* Small devices (sm) */
+    .discover{
+        padding: 2rem; /* Equivalent to p-sm-8 */
+    }
+}
+
+.discover {
+    max-width: 1200px; /* Equivalent to Bootstrap's container max-width */
+    margin: 3rem auto; /* Equivalent to my-5 */
+    padding: 0 15px; /* Add some horizontal padding for smaller screens */
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem; /* Equivalent to mb-5 */
+}
+.section-header .title {
+    font-size: 2.5rem; /* Equivalent to display-5 */
+    font-weight: 700; /* Equivalent to fw-bold */
+    color: #212529; /* Equivalent to text-dark */
+    position: relative;
+    display: inline-block;
+}
+.section-header .title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #ffc107; /* Bootstrap's yellow */
+    border-radius: 50rem;
+    margin: 0.5rem auto 0;
+}
+.card-grid {
+    display: grid;
+    gap: 1.5rem; /* Equivalent to g-4 */
+    margin-bottom: 3rem; /* Equivalent to mb-5 */
+}
+/* Responsive grid for Best Sellers */
+.card-grid.best-sellers {
+    grid-template-columns: 1fr; /* Default for mobile */
+}
+
+@media (min-width: 768px) { /* Medium devices (md) */
+    .card-grid.best-sellers {
+        grid-template-columns: repeat(3, 1fr); /* Equivalent to row-cols-md-3 */
+    }
+}
+    /* Responsive grid for Rice Meals */
+    .card-grid.rice-meals {
+        grid-template-columns: 1fr; /* Default for mobile */
+    }
+@media (min-width: 576px) { /* Small devices (sm) */
+    .card-grid.rice-meals {
+        grid-template-columns: repeat(2, 1fr); /* Equivalent to row-cols-sm-2 */
+    }
+}
+@media (min-width: 992px) { /* Large devices (lg) */
+    .card-grid.rice-meals {
+        grid-template-columns: repeat(4, 1fr); /* Equivalent to row-cols-lg-4 */
+    }
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125); /* Default Bootstrap card border */
+    border-radius: 0.5rem; /* Equivalent to rounded-3 */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Equivalent to shadow-lg */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Equivalent to h-100 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.card-image-container {
+    position: relative;
+}
+.card-img {
+    width: 100%;
+    height: 192px; /* Fixed height for best sellers */
+    object-fit: cover;
+    display: block;
+}
+.card-img.rice-meal-img {
+    height: 160px; /* Fixed height for rice meals */
+}
+.price-tag {
+    background-color: #FFD700; /* Yellow */
+    color: #333;
+    border-radius: 50rem; /* Fully rounded */
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+.price-tag small {
+    font-size: 0.75em; /* Smaller text for 'PER TUB' */
+    margin-left: 0.25rem; /* Equivalent to ms-1 */
+}
+.card-body {
+    padding: 1rem; /* Equivalent to p-4 */
+    flex-grow: 1; /* Allow body to grow and fill space */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+.card-body.rice-meal-body {
+    padding: 0.75rem; /* Equivalent to p-3 */
+}
+.card-title {
+    font-size: 1.25rem; /* Equivalent to fs-5 */
+    font-weight: 600; /* Equivalent to fw-semibold */
+    color: #212529; /* Equivalent to text-dark */
+    margin-bottom: 0.5rem; /* Equivalent to mb-2 */
+    text-align: center;
+}
+.card-title.rice-meal-title {
+    font-size: 1rem; /* Equivalent to fs-6 */
+    font-weight: 500; /* Equivalent to fw-medium */
+}
+.card-text {
+    font-size: 0.875rem; /* Equivalent to small */
+    color: #6c757d; /* Equivalent to text-secondary */
+    line-height: 1.5; /* Equivalent to lh-base */
+    text-align: center;
+}
+.card-footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Equivalent to w-100 */
+    margin-top: auto; /* Equivalent to mt-auto */
+    padding-top: 0.5rem; /* Equivalent to pt-2 */
+}
+.price-text {
+    font-size: 1.5rem; /* Equivalent to fs-4 */
+    font-weight: 700; /* Equivalent to fw-bold */
+    color: #212529; /* Equivalent to text-dark */
+}
+.cart-icon-bg {
+    background-color: #FFD700; /* Yellow */
+    border-radius: 50%; /* Fully rounded */
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    border: none; /* Equivalent to border-0 */
+    cursor: pointer;
+}
+.cart-icon-bg:hover {
+    background-color: #e6c800; /* Darker yellow on hover */
+}
+.cart-icon-bg svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor; /* Use current text color for SVG */
+    color: #212529; /* Dark color for the icon */
+}
+.feedback {
+    max-width: 72rem; /* max-w-6xl */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column; /* flex-col */
+    gap: 2rem; /* gap-8 */
+    padding: 1.5rem; /* p-6 */
+}
+
+@media (min-width: 1024px) { /* lg: breakpoint */
+    .feedback {
+        flex-direction: row; /* lg:flex-row */
+    }
+}
+.feedback > div:first-child { /* Left Section: Title and Stars */
+    flex: 1; /* flex-1 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* items-center */
+    padding: 1.5rem; /* p-6 */
+}
+
+@media (min-width: 1024px) { /* lg: breakpoint */
+    .feedback > div:first-child {
+        align-items: flex-start; /* lg:items-start */
+    }
+}
+.feedback h1 {
+    font-size: 3rem; /* text-5xl */
+    font-weight: 800; /* font-extrabold */
+    color: #dc2626; /* text-red-600 */
+    margin-bottom: 1rem; /* mb-4 */
+    text-align: center; /* text-center */
+    line-height: 1.25; /* leading-tight */
+}
+
+@media (min-width: 1024px) { /* lg: breakpoint */
+    .feedback h1 {
+        text-align: left; /* lg:text-left */
+    }
+}
+.feedback .star-rating { /* Container for stars */
+    display: flex;
+        gap: 0.25rem; /* space-x-1 */
+    }
+
+.feedback .star-rating svg {
+    width: 2.5rem; /* w-10 */
+    height: 2.5rem; /* h-10 */
+    color: #facc15; /* text-yellow-400 */
+    fill: currentColor; /* fill-current */
+}
+.feedback > div:last-child { /* Right Section: Customer Reviews */
+    flex: 1; /* flex-1 */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* space-y-6 */
+    padding: 1.5rem; /* p-6 */
+}
+.review-card {
+    background-color: #ffffff; /* bg-white */
+    border-radius: 1rem; /* rounded-2xl */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
+    padding: 1rem; /* p-4 */
+    display: flex;
+    align-items: flex-start; /* items-start */
+    gap: 0.75rem; /* space-x-3 */
+}
+.review-card.has-reply { /* For review cards with a reply */
+    flex-direction: column;
+    gap: 0.75rem; /* space-y-3 */
+}
+.review-card img {
+    width: 2.5rem; /* w-10 */
+    height: 2.5rem; /* h-10 */
+    border-radius: 9999px; /* rounded-full */
+    object-fit: cover; /* object-cover */
+}
+.review-card .review-content {
+    flex: 1; /* flex-1 */
+}
+.review-card p {
+    color: #374151; /* text-gray-800 */
+    font-size: 0.875rem; /* text-sm */
+}
+.heart-icon {
+    color: #ef4444; /* Red color for the heart */
+    font-size: 1.25rem; /* text-xl */
+}
+.reply-bubble {
+    margin-left: auto; /* ml-auto */
+    background-color: #3b82f6; /* bg-blue-500 */
+    color: #ffffff; /* text-white */
+    border-radius: 1rem; /* rounded-2xl */
+    padding: 0.75rem; /* p-3 */
+    font-size: 0.875rem; /* text-sm */
+    max-width: 80%; /* max-w-[80%] */
+    display: flex; /* To align heart icon */
+    align-items: center; /* To align heart icon */
+}
+.reply-bubble .heart-icon {
+    color: #ffffff; /* text-white */
+    margin-left: 0.5rem; /* ml-2 */
+}
+#follow {
+    padding-top: 20px;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../Images/FollowUs.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+}
+.text {
+    font-size: 25px;
+    letter-spacing: 3px;
+    padding-top: 8%;
+    text-align: center;
+}
+.text h5 {
+    color: rgb(61, 61, 61);
+}
+.text i {
+    color: rgb(14, 94, 199);
+    font-size: 75px;
+}

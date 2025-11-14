@@ -1,0 +1,12 @@
+.location {
+    display: flex; /* Make the container a flex container */
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content (if the container has a defined height) */
+    margin: 0;
+    padding: 20px; /* You can keep your padding */
+    /* padding-top: 20px; This is redundant if you have padding: 20px; */
+}
+
+.location iframe {
+    display: block; /* Ensures the iframe behaves as a block element for consistent centering */
+}

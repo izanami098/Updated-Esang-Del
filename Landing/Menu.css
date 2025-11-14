@@ -1,0 +1,148 @@
+.menu-contents {
+    /*background-color: #f2f2f2;*/
+    margin: 0;
+    padding: 20px;
+    padding-top: 20px;
+}
+.menu-tab {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line on smaller screens */
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center; /* Center the buttons */
+}
+.menu-tab button {
+    background-color: #FFC222;
+    border: 1px solid #FFC222;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.menu-tab button:hover {
+    background-color: #f5b921;
+}
+.menu-tab button.active {
+    background-color: #d9534f; /* Active button background color */
+    color: #fff; /* Active button text color */
+    border-color: #d9534f;
+}
+/* Existing CSS for .bilao-button */
+.bilao-button {
+    color: #fff;
+    background-color: #FFC222;
+    border: 1px solid #f5b921;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.bilao-button:hover {
+    background-color: #f5b921;
+}
+
+/* New CSS for the active state of the bilao buttons */
+.bilao-button.active-bilao-button {
+    background-color: #d9534f; /* Active button background color */
+    color: #fff; /* Active button text color */
+    border-color: #d9534f;
+}
+.menu-grid {
+    display: none; /* Hide all grids by default */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+.menu-grid h2 {
+    text-align: center;
+    color: #d9534f;
+}
+.menu-grid.active-grid {
+    display: grid; /* Show the active grid */
+}
+.menu-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.menu-item img {
+    width: 100%;
+    height: 150px; /* Fixed height for images */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.menu-item h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #333;
+}
+.menu-item p {
+    color: #555;
+    font-size: 1em;
+}
+.price {
+    font-weight: bold;
+    color: #d9534f;
+    margin-top: 5px;
+}
+/* Packaged Meals Specific Styling */
+
+/* Grid layout for packaged meals, spans multiple columns for full-width headings */
+#packaged-meals-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+}
+/* Styles for each step in the packaged meals customization process */
+.packaged-meal-step {
+    display: none; /* Hide all steps by default */
+    grid-column: 1 / -1; /* Make each step container span the full width */
+    grid-template-columns: subgrid; /* Maintain the main grid's column structure */
+    gap: 15px;
+}
+/* Show the active step */
+.packaged-meal-step.active-step {
+    display: grid;
+}
+/* Active selection highlight for menu items */
+.menu-item.selected {
+    border-color: #d9534f;
+    box-shadow: 0 0 10px rgba(217, 83, 79, 0.5);
+    transform: scale(1.03); /* Subtle scale effect on selection */
+}
+.menu-item:hover {
+    border-color: #f5b921; /* Highlight on hover */
+    box-shadow: 0 0 5px rgba(245, 185, 33, 0.5);
+}
+/* Add button styling */
+.add-button-container {
+    grid-column: 1 / -1;
+    text-align: right;
+    margin-top: 20px;
+}
+.add-button {
+    background-color: #d9534f;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.add-button:hover {
+    background-color: #c9302c;
+    transform: translateY(-2px);
+}
