@@ -263,49 +263,47 @@
                 return;
             }
 
-            // Calculate statistics
-            const total = data.data.reduce((sum, item) => sum + item.value, 0);
-            const average = total / data.data.length;
-            const max = Math.max(...data.data.map(item => item.value));
-            const min = Math.min(...data.data.map(item => item.value));
-
-            // Display stats
+            // Display stats from API
+            const stats = data.stats || {};
             document.getElementById(`${period}-stats`).innerHTML = `
                 <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <div class="value">${stats.total_orders || 0}</div>
+                </div>
+                <div class="stat-card">
                     <h3>Total Revenue</h3>
-                    <div class="value">₱${total.toFixed(2)}</div>
+                    <div class="value">₱${parseFloat(stats.total_revenue || 0).toFixed(2)}</div>
                 </div>
                 <div class="stat-card">
-                    <h3>Average</h3>
-                    <div class="value">₱${average.toFixed(2)}</div>
-                </div>
-                <div class="stat-card">
-                    <h3>Highest</h3>
-                    <div class="value">₱${max.toFixed(2)}</div>
-                </div>
-                <div class="stat-card">
-                    <h3>Lowest</h3>
-                    <div class="value">₱${min.toFixed(2)}</div>
+                    <h3>Average Order Value</h3>
+                    <div class="value">₱${parseFloat(stats.avg_order_value || 0).toFixed(2)}</div>
                 </div>
             `;
 
-            // Display data table
-            let tableHTML = '<table class="data-table"><thead><tr><th>Period</th><th>Revenue</th></tr></thead><tbody>';
-            data.data.forEach(item => {
-                tableHTML += `<tr><td>${item.label}</td><td>₱${item.value.toFixed(2)}</td></tr>`;
-            });
+            // Display trend data table
+            const trend = data.trend || [];
+            let tableHTML = '<table class="data-table"><thead><tr><th>Date</th><th>Orders</th><th>Revenue</th></tr></thead><tbody>';
+            if (trend.length === 0) {
+                tableHTML += '<tr><td colspan="3" style="text-align: center; color: #999;">No trend data available</td></tr>';
+            } else {
+                trend.forEach(item => {
+                    tableHTML += `<tr><td>${item.date}</td><td>${item.orders}</td><td>₱${parseFloat(item.revenue || 0).toFixed(2)}</td></tr>`;
+                });
+            }
             tableHTML += '</tbody></table>';
             document.getElementById(`${period}-data`).innerHTML = tableHTML;
 
             // Update transactions (only once)
-            if (data.transactions && data.transactions.length > 0) {
-                let transHTML = '<table class="data-table"><thead><tr><th>Customer</th><th>Payment</th><th>Date</th><th>Amount</th></tr></thead><tbody>';
-                data.transactions.forEach(trans => {
+            if (period === 'weekly' && data.orders && data.orders.length > 0) {
+                let transHTML = '<table class="data-table"><thead><tr><th>Order ID</th><th>Customer</th><th>Status</th><th>Date</th><th>Amount</th></tr></thead><tbody>';
+                data.orders.forEach(order => {
+                    const date = new Date(order.order_date).toLocaleDateString();
                     transHTML += `<tr>
-                        <td>${trans.username}</td>
-                        <td>${trans.paymentType}</td>
-                        <td>${trans.date}</td>
-                        <td><strong>${trans.amount}</strong></td>
+                        <td>#${order.order_id}</td>
+                        <td>${order.customer_name || 'N/A'}</td>
+                        <td>${order.order_status}</td>
+                        <td>${date}</td>
+                        <td><strong>₱${parseFloat(order.total_amount || 0).toFixed(2)}</strong></td>
                     </tr>`;
                 });
                 transHTML += '</tbody></table>';
